@@ -132,7 +132,7 @@ CHANNEL_LAYERS = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.railway.app",
+    "https://prototype-e9pu.onrender.com",
 ]
 
 DATABASES["default"]["CONN_MAX_AGE"] = 0
