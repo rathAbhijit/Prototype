@@ -134,3 +134,5 @@ CHANNEL_LAYERS = {
 CSRF_TRUSTED_ORIGINS = [
     "https://*.railway.app",
 ]
+
+DATABASES["default"]["CONN_MAX_AGE"] = 0
