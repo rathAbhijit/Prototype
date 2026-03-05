@@ -16,7 +16,7 @@ class EditorConsumer(AsyncWebsocketConsumer):
             self.channel_name
         )
 
-        # DB-safe room loading
+        
         room = await database_sync_to_async(
             room_manager.create_or_get_room
         )(self.room_id)
@@ -63,7 +63,7 @@ class EditorConsumer(AsyncWebsocketConsumer):
 
         event_type = event.get("type")
 
-        # CODE UPDATE
+    
         if event_type == "code_update":
             filename = event["payload"]["filename"]
             new_code = event["payload"]["code"]
@@ -86,7 +86,7 @@ class EditorConsumer(AsyncWebsocketConsumer):
                 }
             )
 
-        # FILE CREATE
+        
         elif event_type == "file_create":
             filename = event["payload"]["filename"]
 
@@ -107,7 +107,7 @@ class EditorConsumer(AsyncWebsocketConsumer):
                     }
                 )
 
-        # FILE OPEN
+        
         elif event_type == "file_open":
             filename = event["payload"]["filename"]
             file_content = room["files"].get(filename, "")
